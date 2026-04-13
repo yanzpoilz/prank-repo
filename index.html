@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sambungkan</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: white;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Gaya tombol utama */
+    #mainButton {
+      padding: 20px 40px;
+      font-size: 24px;
+      font-weight: bold;
+      color: #fff;
+      background: linear-gradient(45deg, #ff00cc, #333399); /* Gradien warna */
+      border: none; /* Hilangkan border default */
+      cursor: pointer;
+      border-radius: 50px; /* Lebih melengkung */
+      transition: all 0.4s ease; /* Transisi halus untuk hover */
+      box-shadow: 0 0 15px rgba(255, 0, 204, 0.7); /* Bayangan neon lembut */
+      position: relative;
+      overflow: hidden;
+      outline: none;
+    }
+
+    /* Efek saat kursor di atas tombol */
+    #mainButton:hover {
+      transform: scale(1.05); /* Sedikit membesar */
+      box-shadow: 0 0 25px rgba(255, 0, 204, 1), 0 0 10px rgba(51, 51, 153, 1); /* Bayangan lebih terang */
+      background: linear-gradient(45deg, #ff00cc, #4d0099); /* Warna sedikit berubah */
+    }
+
+    /* Efek saat tombol diklik */
+    #mainButton:active {
+      transform: scale(0.98); /* Sedikit mengecil saat ditekan */
+    }
+
+    /* Div konten disembunyikan secara default */
+    #content {
+      display: none;
+      text-align: center;
+    }
+
+    #monkeyImage {
+      max-width: 80%;
+      height: auto;
+      border-radius: 10px;
+      border: 2px solid #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="startScreen">
+    <!-- Tombol sekarang memiliki efek visual yang lebih menarik -->
+    <button id="mainButton">Sambungkan 🔗</button>
+  </div>
+
+  <div id="content">
+    <h1>Beli Voucher Mas 🗿</h1>
+    <img id="monkeyImage" src="monyet.jpg" alt="Monyet">
+  </div>
+
+  <audio id="sound" preload="auto">
+    <source src="sound.mp3" type="audio/mpeg">
+    Browser Anda tidak mendukung elemen audio.
+  </audio>
+
+  <script>
+    const button = document.getElementById('mainButton');
+    const startScreen = document.getElementById('startScreen');
+    const contentDiv = document.getElementById('content');
+    const audio = document.getElementById('sound');
+
+    button.onclick = function() {
+      startScreen.style.display = 'none';
+      contentDiv.style.display = 'block';
+
+      // Coba mainkan suara
+      audio.play().catch(e => {
+        console.log("Playback error (autoplay mungkin diblokir):", e);
+      });
+    };
+  </script>
+
+</body>
+</html>
